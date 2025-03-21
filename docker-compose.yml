@@ -1,0 +1,8 @@
+version: '3.2'
+
+services:
+  homepage25:
+    build:
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
