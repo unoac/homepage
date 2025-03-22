@@ -1,0 +1,72 @@
+- id: 0
+  name: Unifi
+  description: Unifi Network OS
+  href: https://unifi.574.one
+  href_ip:
+  href_console: 
+  icon: Unifi
+  target: _blank
+
+- id: 1
+  name: AdGuard
+  description: Local DNS Server + Ad Blocker
+  href: https://adguard.574.one
+  href_ip:
+  href_console: https://pve.574.one/?console=lxc&xtermjs=1&vmid=107&vmname=adguard&node=pve&cmd=
+  icon: AdGuard
+  target: _blank
+
+- id: 2
+  name: Nginx Proxy Manager
+  description: Reverse Proxy and SSL
+  href: https://574.one
+  href_ip:
+  href_console: https://pve.574.one/?console=lxc&xtermjs=1&vmid=108&vmname=nginxproxymanager&node=pve&cmd=
+  icon: NginxProxyManager
+  target: _blank
+
+- id: 3
+  name: Proxmox
+  description: Main Hypervisor
+  href: https://pve.574.one
+  href_ip:
+  href_console: 
+  icon: Proxmox
+  target: _blank
+
+- id: 4
+  name: Plex
+  description: Media Server
+  href: https://plex.574.one
+  href_ip:
+  href_console: https://pve.574.one/?console=kvm&novnc=1&vmid=101&vmname=plex-0&node=pve&resize=off&cmd=
+  icon: Plex
+  target: _blank
+
+- id: 5
+  name: Dockge
+  description: Stack based Docker Container Management
+  href: https://dockge.574.one
+  href_ip:
+  href_console: https://pve.574.one/?console=kvm&novnc=1&vmid=109&vmname=dockge&node=pve&resize=off&cmd=
+  icon: Dockge
+  target: _blank
+
+- id: 6
+  name: Home Assistant
+  description: Home Automation
+  href: https://haone.574.one
+  href_ip:
+  href_console: 
+  icon: HomeAssistant
+  target: _blank
+
+- id: 7
+  name: File Browswer
+  description: Self hosted Drive Interface
+  href: https://storge.574.one
+  href_ip:
+  href_console: 
+  icon: FileBrowser
+  target: _blank
+
