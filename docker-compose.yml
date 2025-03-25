@@ -1,8 +1,18 @@
-version: '3.2'
+# version: "3.2"
 
 services:
-  homepage25:
-    build:
-      dockerfile: Dockerfile
+  client:
+    container_name: client
     ports:
       - 80:80
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+
+  server:
+    container_name: server
+    ports:
+      - 3069:3069
+    build:
+      context: ./server
+      dockerfile: Dockerfile
