@@ -21,7 +21,8 @@ function App() {
 
   const fetchLinks = async () => {
     try {
-      const response = await fetch('http://localhost:3069/api');
+      const API_URL = import.meta.env.HOST;
+      const response = await fetch(API_URL);
       const data = await response.json();
       setLinks(data);
     } catch (err) {
