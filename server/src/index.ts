@@ -8,7 +8,7 @@ const app = new Hono();
 
 app.use("/*", cors());
 
-app.get("/", (c) => {
+app.get("/api", (c) => {
   const file = fs.readFileSync("./data/links.yml", "utf8");
   const yamljson = YAML.parse(file);
   return c.json(yamljson);
