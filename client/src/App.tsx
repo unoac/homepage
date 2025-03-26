@@ -21,7 +21,7 @@ function App() {
 
   const fetchLinks = async () => {
     try {
-      const response = await fetch('http://localhost:3069');
+      const response = await fetch('http://localhost:3069/api');
       const data = await response.json();
       setLinks(data);
     } catch (err) {
