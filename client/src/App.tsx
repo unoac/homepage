@@ -4,6 +4,7 @@ import LinkCard from '@/components/LinkCard';
 // import { Links } from '@/data/links.tsx';
 
 interface Link {
+  id: number;
   name: string;
   description: string;
   icon: string;
@@ -16,19 +17,18 @@ function App() {
   const [links, setLinks] = useState<Link[]>([]);
 
   useEffect(() => {
+    const API_URL = '/api/links';
+    const fetchLinks = async () => {
+      try {
+        const response = await fetch(API_URL);
+        const data = await response.json();
+        setLinks(data);
+      } catch (err) {
+        console.error('errrrrrr', err);
+      }
+    };
     fetchLinks();
   }, []);
-
-  const fetchLinks = async () => {
-    try {
-      const API_URL = import.meta.env.HOST;
-      const response = await fetch(API_URL);
-      const data = await response.json();
-      setLinks(data);
-    } catch (err) {
-      console.error('errrrrrr', err);
-    }
-  };
 
   return (
     <>
@@ -36,7 +36,7 @@ function App() {
         <h1 className="mb-4 text-center text-4xl font-bold text-zinc-200">🏎️</h1>
         <div className="flex flex-col gap-3">
           {links.map((link) => (
-            <a href={link.href} target="_blank">
+            <a href={link.href} target="_blank" key={link.id}>
               <LinkCard className="transition hover:bg-zinc-800">
                 <div className="flex items-center gap-2">
                   <div className="flex h-8 w-8">
@@ -48,7 +48,7 @@ function App() {
                     <h3 className="font-semibold">{link.name}</h3>
                     <p className="text-xs text-zinc-400">{link.description}</p>
                   </div>
-                  <div>
+                  {/* <div>
                     {link.href_console ? (
                       <>
                         <a href={link.href_console} target="_blank">
@@ -64,11 +64,8 @@ function App() {
                           </svg>
                         </a>
                       </>
-                    ) : (
-                      <></>
-                    )}
-                    <span></span>
-                  </div>
+                    ) : null}
+                  </div> */}
                 </div>
               </LinkCard>
             </a>
