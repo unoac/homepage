@@ -1,30 +1,40 @@
-FROM node:20-alpine AS base
+FROM node:18-alpine as build
 
-FROM base AS builder
-
-RUN apk add --no-cache gcompat
 WORKDIR /app
 
-COPY package*json tsconfig.json src data ./
+COPY package.json .
+COPY package-lock.json .
 
+RUN npm ci
+
+COPY . .
+
+RUN npm run build
+
+FROM node:18-alpine
+
+
+RUN apk add --no-cache nginx
+
+WORKDIR /app
+
+COPY package.json .
+COPY package-lock.json .
 COPY data ./data
 
-RUN npm ci && \
-    npm run build && \
-    npm prune --production
+RUN npm ci --production
 
-FROM base AS runner
-WORKDIR /app
+COPY --from=build /app/dist ./dist
+COPY --from=build /app/data ./data
+COPY nginx.conf /etc/nginx/http.d/default.conf
+COPY docker-entrypoint.sh /usr/local/bin/
 
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 hono
 
-COPY --from=builder --chown=hono:nodejs /app/node_modules /app/node_modules
-COPY --from=builder --chown=hono:nodejs /app/dist /app/dist
-COPY --from=builder --chown=hono:nodejs /app/data /app/data
-COPY --from=builder --chown=hono:nodejs /app/package.json /app/package.json
+RUN mkdir -p /run/nginx && \
+    chmod +x /usr/local/bin/docker-entrypoint.sh
 
-USER hono
-EXPOSE 3000
+EXPOSE 3000 3001
 
-CMD ["node", "/app/dist/index.js"]
+ENTRYPOINT ["docker-entrypoint.sh"]
+CMD ["node", "dist/index.js"]
+
