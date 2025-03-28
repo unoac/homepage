@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import MainLayout from '@/layouts/MainLayout';
 import LinkCard from '@/components/LinkCard';
-// import { Links } from '@/data/links.tsx';
 
 interface Link {
   id: number;
@@ -24,7 +23,7 @@ function App() {
         const data = await response.json();
         setLinks(data);
       } catch (err) {
-        console.error('errrrrrr', err);
+        console.error('Error:', err);
       }
     };
     fetchLinks();

@@ -1,0 +1,44 @@
+- id: 0
+  name: Unifi
+  description: Unifi Network OS
+  href: https://google.com
+  href_ip:
+  href_console:
+  icon: Unifi
+  target: _blank
+
+- id: 1
+  name: AdGuard
+  description: Local DNS Server + Ad Blocker
+  href: https://google.com
+  href_ip:
+  href_console:
+  icon: AdGuard
+  target: _blank
+
+- id: 2
+  name: Nginx Proxy Manager
+  description: Reverse Proxy and SSL
+  href: https://google.com
+  href_ip:
+  href_console:
+  icon: NginxProxyManager
+  target: _blank
+
+- id: 3
+  name: Plex
+  description: Media Server
+  href: https://google.com
+  href_ip:
+  href_console:
+  icon: Plex
+  target: _blank
+
+- id: 4
+  name: Home Assistant
+  description: Home Automation
+  href: https://google.com
+  href_ip:
+  href_console:
+  icon: HomeAssistant
+  target: _blank
