@@ -25,7 +25,13 @@ New Learnings:
 git clone .....
 ```
 
-2. Run Docker
+2. Copy yaml file
+
+```sh
+cp links.example.yml ./server/data/links.yml
+```
+
+3. Run Docker
 
 ```sh
 docker compose up -d

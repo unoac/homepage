@@ -13,7 +13,9 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://backend:3001',
+        // backend works on: docker = yes, dev = no.
+        // localhost works on: docker: yes (mac) unsure on home server, dev = yes
+        target: 'http://localhost:3001',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },
