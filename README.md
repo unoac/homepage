@@ -2,13 +2,17 @@
 
 A super simple homepage app containing local links in a yaml file.
 
-Partly a learning project and something I've wanted to build for a while as other solutions are too complex for my needs and I've needed to learn how to use Docker correctly for a while.
+Partly a learning project and something I've wanted to build for a while as other solutions are too complex for my needs and I've needed to learn how to use Docker correctly for a while. Most of this could have been achieved using a static site generator, but I thought overengineering a simple app sounded more logical =).
 
 New Learnings:
 
 - Parsing files (yaml) on the server and creating an API.
 - Docker Compose
 - Nginx (needed help from AI here as I'm still understanding proxies, but have gained a bit more knowledge)
+
+## Features
+
+- Nothing yet!
 
 ## Tech Stack
 
